@@ -1,0 +1,17 @@
+=========================================================================
+NOTICE file for use with, and corresponding to Section 4 of,
+the Apache License, Version 2.0,
+in this case for the BigSecret project.
+=========================================================================
+
+This product includes software developed by The University of Texas at 
+Dallas, Data Security and Privacy Laboratory
+Copyright (c) 2013 The University of Texas at Dallas, Data Security and
+Privacy Laboratory All rights reserved.
+
+This work was partially supported by Air Force Office of Scientific 
+Research MURI Grant FA9550-08-1-0265 and FA9550-12-1-0082, National 
+Institutes of Health Grants 1R01LM009989 and 1R01HG006844, National 
+Science Foundation (NSF) Grants Career-CNS-0845803, CNS-0964350, 
+CNS-1016343, CNS-1111529, CNS-1228198 and  Army Research Office 
+Grant W911NF-12-1-0558. 
