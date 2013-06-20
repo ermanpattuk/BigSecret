@@ -2,22 +2,43 @@ BigSecret
 =========
 
 This source code is the result of an accepted IEEE Cloud 2013 paper:
-	BigSecret: A Secure Data Management Framework for Key-Value Stores
+  BigSecret: A Secure Data Management Framework for Key-Value Stores
 
-Further information can be found in:
-	. Technical report @ http://www.utdallas.edu/~exp111430/techReport.pdf
-	. Course notes @ http://www.utdallas.edu/~muratk/courses/cloud13s_files/bigsecret.pdf
-	. IEEE Cloud 2013 presentation (to-be-published)
+This project aims to secure outsourcing of Key-Value stores, simply by utilizing public 
+clouds through a proxy application. this proxy application recieves incoming requests from
+any client, and performs simple, fast, but secure cryptographic operations on the data. Then,
+resulting data is stored/retrieved on/from public clouds. 
+
+To store data in secure form, and perform queries (Put, Get, Delete, and Scan in HBase terms),
+data needs to be transformed using fundamental crypto techniques, such as symmetric encryption,
+hashing, and bucketization. There are three modes of storage in BigSecret:
+  1 - Bucketization is the primary indexing tool. When data is stored in this mode, all four 
+    operations of HBase can be performed. However, this comes with a cost of reduced efficiency.
+  2 - Hashing is the indexing technique, which is applied to every key-part (row-key, family, 
+    qualifier, and timestamp). This mode of operation is fast, but does not support Scan. 
+  3 - Again, hashing is the indexing technique, but only applied to row-key. Moreover, all key
+    related data is concatenated in the qualifier part in encrypted form. In our paper, we prove
+	the security of this mode. Just like the 2nd mode, operations are performed very efficiently.
+	
+In our paper, we utilize multiple clouds by partitioning an initial dataset, and a possible set of
+queries. However, this feature is not included in the open source implementation of BigSecret. The 
+code that handles the partitioning is in prototype level, and needs further improvement to be used 
+in this version. 
+  
+Further information about BigSecret can be found in:
+  . Technical report @ http://www.utdallas.edu/~exp111430/techReport.pdf
+  . Course notes @ http://www.utdallas.edu/~muratk/courses/cloud13s_files/bigsecret.pdf
+  . IEEE Cloud 2013 presentation (to-be-published)
 	
 To start working with BigSecret library:
-	1 - Install HBase. Current version of BigSecret was written on top of HBase 0.94.1.
-	2 - If you want to use bucketizers in your data storage, then:
-		a - Run Bucketizer/src/edu/utdallas/bigsecret/app/CreateBuckets. You may create as many 
-			bucketizers as you need. Remember the id's that you give to the bucketizers. 
-			A sample code for creating bucketizers through Java is present in 
-			Proxy/src/edu/utdallas/bigsecret/proxy/test/TestProxyMode1.java
-	3 - Place bucketizer.jar, cipher.jar, proxy.jar, utilities.jar to your class path. You also 
-		need to have HBase related jars in your class path.
-	4 - You're all set. Now you can start using BigSecret library. 
-		You can find example implementations in 
-		Proxy/src/edu/utdallas/bigsecret/proxy/test/TestProxyMode(1|2|3).java
+  1 - Install HBase. Current version of BigSecret was written on top of HBase 0.94.1.
+  2 - If you want to use bucketizers in your data storage, then:
+    a - Run Bucketizer/src/edu/utdallas/bigsecret/app/CreateBuckets. You may create as many 
+      bucketizers as you need. Remember the id's that you give to the bucketizers. 
+      A sample code for creating bucketizers through Java is present in 
+      Proxy/src/edu/utdallas/bigsecret/proxy/test/TestProxyMode1.java
+  3 - Place bucketizer.jar, cipher.jar, proxy.jar, utilities.jar to your class path. You also 
+    need to have HBase related jars in your class path.
+  4 - You're all set. Now you can start using BigSecret library. 
+    You can find example implementations in 
+    Proxy/src/edu/utdallas/bigsecret/proxy/test/TestProxyMode(1|2|3).java
