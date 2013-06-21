@@ -31,7 +31,7 @@ Further information about BigSecret can be found in:
   . IEEE Cloud 2013 presentation (to-be-published)
 	
 To start working with BigSecret library:
-  1 - Install HBase. Current version of BigSecret was written on top of HBase 0.94.1.
+  1 - Install HBase. Current version of BigSecret was written on top of HBase 0.94.2.
   2 - If you want to use bucketizers in your data storage, then:
     a - Run Bucketizer/src/edu/utdallas/bigsecret/app/CreateBuckets. You may create as many 
       bucketizers as you need. Remember the id's that you give to the bucketizers. 
