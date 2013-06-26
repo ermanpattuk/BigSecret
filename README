@@ -28,7 +28,7 @@ in this version.
 Further information about BigSecret can be found in:
   . Technical report @ http://www.utdallas.edu/~exp111430/techReport.pdf
   . Course notes @ http://www.utdallas.edu/~muratk/courses/cloud13s_files/bigsecret.pdf
-  . IEEE Cloud 2013 presentation (to-be-published)
+  . IEEE Cloud 2013 presentation http://www.utdallas.edu/~exp111430/bigsecret/presentation.pptx
 	
 To start working with BigSecret library:
   1 - Install HBase. Current version of BigSecret was written on top of HBase 0.94.2.
